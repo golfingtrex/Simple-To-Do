@@ -6,15 +6,18 @@
              xmlns:local="clr-namespace:Simple_To_Do.Views"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button
+    <StackPanel>
+        <Grid>
+
+            <!--Grid Column formatting. Needs work to get it correctly centered-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Button for adding Todo Item to Todo List-->
+            <Button
                     Grid.Column="0"
                     Name="addTodoButton"
                     Content="Add Todo"
@@ -24,10 +27,10 @@
                     VerticalAlignment="Center"
                     Margin="0 0 10 0"/>
 
-                <TextBox
+            <!--Text Box for typing in the Todo Item-->
+            <TextBox
                     Grid.Column="1"
                     Name="todoInputTextBox"/>
-            </Grid>
-        </StackPanel>
-    </Grid>
+        </Grid>
+    </StackPanel>
 </UserControl>

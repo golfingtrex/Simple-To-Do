@@ -6,57 +6,55 @@
              xmlns:local="clr-namespace:Simple_To_Do.Views"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel>
-            <ListView>
-                <!--Styling so the CheckBox will be centered under the header-->
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListView.ItemContainerStyle>
+    <ListView>
 
-                <!--Dummy list items for UI testing-->
-                <ListItem/>
-                <ListItem/>
-                <ListItem/>
+        <!--Styling so the Todo Items will be centered under the header.-->
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+            </Style>
+        </ListView.ItemContainerStyle>
 
-                <!--Header for my CheckBox column-->
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Completed">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <CheckBox/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+        <!--Dummy list items for UI testing.-->
+        <ListItem/>
+        <ListItem/>
+        <ListItem/>
 
-                        <!--Header for the name of the task-->
-                        <GridViewColumn Header="Task">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock
-                                        HorizontalAlignment="Center"
-                                        Text="{Binding}"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+        <!--Header for the CheckBox column.-->
+        <ListView.View>
+            <GridView>
+                <GridViewColumn Header="Completed">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
 
-                        <!--Header for the delete button-->
-                        <GridViewColumn Header="Delete">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button
-                                        HorizontalAlignment="Right"
-                                        Content="X"
-                                        Background="Red"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
-    </Grid>
+                <!--Header for the name of the Todo Item.-->
+                <GridViewColumn Header="Task">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                Text="{Binding}"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <!--Header for the delete button.-->
+                <GridViewColumn Header="Delete">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button
+                                HorizontalAlignment="Right"
+                                Content="X"
+                                Background="Red"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+            </GridView>
+        </ListView.View>
+    </ListView>
 </UserControl>

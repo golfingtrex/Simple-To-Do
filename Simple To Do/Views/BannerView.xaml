@@ -7,10 +7,9 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <StackPanel>
-            <Grid>
-                <Label HorizontalAlignment="Center" FontSize="24">TODO App</Label>
-            </Grid>
-        </StackPanel>
+
+        <!--The name of my app!-->
+        <Label HorizontalAlignment="Center" FontSize="24">TODO App</Label>
+
     </Grid>
 </UserControl>
