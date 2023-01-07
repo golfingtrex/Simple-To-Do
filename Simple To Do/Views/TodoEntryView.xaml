@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Simple_To_Do.Views"
+             xmlns:local="clr-namespace:Simple_To_Do.Views" xmlns:viewmodels="clr-namespace:Simple_To_Do.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:TodoEntryViewModel}"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
@@ -17,20 +17,14 @@
             </Grid.ColumnDefinitions>
 
             <!--Button for adding Todo Item to Todo List-->
-            <Button
-                    Grid.Column="0"
-                    Name="addTodoButton"
-                    Content="Add Todo"
-                    Width="100"
-                    Height="30"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Margin="0 0 10 0"/>
+            <Button Grid.Column="0"
+                    Style="{StaticResource TodoEntryButton}"/>
 
             <!--Text Box for typing in the Todo Item-->
             <TextBox
-                    Grid.Column="1"
-                    Name="todoInputTextBox"/>
+                Grid.Column="1"
+                Style="{StaticResource EntryTextBox}"/>
+
         </Grid>
     </StackPanel>
 </UserControl>

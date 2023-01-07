@@ -1,14 +1,62 @@
 ﻿<Application x:Class="Simple_To_Do.App"
 			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:sys="clr-namespace:System;assembly=mscorlib"
 			 xmlns:local="clr-namespace:Simple_To_Do"
 			 StartupUri="MainWindow.xaml">
-	<Application.Resources>
-		<Style TargetType="Button">
-            <Setter Property="Padding" Value="10 5"/>
+
+    <Application.Resources>
+
+        <!--Template for displaying the App Banner.-->
+        <Style x:Key="AppBanner"
+               TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Text" Value="TODO App!"/>
         </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="Padding" Value="2 4"/>
+
+        <!--Template for the button to add a Todo Item to the Todo List.-->
+        <Style x:Key="TodoEntryButton"
+               TargetType="Button">
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Content" Value="Add Todo"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0 0 10 0"/>
+            <Setter Property="Command" Value="{Binding TodoEntryCommand}"/>
         </Style>
+
+        <!--Template for the TextBox used to enter the Todo Item.-->
+        <Style x:Key="EntryTextBox"
+               TargetType="TextBox">
+            <Setter Property="Padding" Value="2,4"/>
+        </Style>
+
+        <!--Template for the ListBox that displays the Todo Items.-->
+        <Style x:Key="TodoListBox"
+               TargetType="ListBox">
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <!--<Setter Property="ItemsSource" Value="{Binding TodoItemsList}"/>-->
+        </Style>
+
+        <!--Template for each Todo Item as it is displayed in the Todo ListBox.-->
+        <Style x:Key="TodoListBoxItem"
+               TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox />
+                            <TextBlock Text="HELL" />
+                            <Button Content="Button" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>
