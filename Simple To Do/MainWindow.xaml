@@ -10,17 +10,9 @@
         FontFamily="Source Code Pro"
         WindowStartupLocation="CenterScreen">
 
-    <!--Place the entire thing in a grid so we can give it margins.-->
-    <Grid
-        Margin="20 10"
-        MaxWidth="1000">
-
-        <!--The layout of each view in the Main Window.-->
-        <StackPanel>
-            <views:BannerView Margin="0 10"/>
-            <views:TodoEntryView Margin="0 5"/>
-            <views:TodoListView Margin="0 5"/>
-        </StackPanel>
-
-    </Grid>
+    <StackPanel Margin="10" MinWidth="500">
+        <views:BannerView Margin="0 10"/>
+        <views:TodoEntryView Margin="0 10"/>
+        <views:TodoListView Margin="0 10"/>
+    </StackPanel>
 </Window>
