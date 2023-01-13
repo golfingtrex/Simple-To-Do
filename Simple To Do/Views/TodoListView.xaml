@@ -9,13 +9,13 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <!--The ListBox for displaying Todo Items according to resource set in Application.Resources.-->
-    <ListBox Style="{StaticResource TodoListBox}">
+    <ListBox Name="TodoList" Style="{StaticResource TodoListBox}">
         <ListBox.ItemContainerStyle>
             <Style TargetType="ListBoxItem"/>
         </ListBox.ItemContainerStyle>
 
         <!--Doesn't scroll yet. TODO-->
-        <ListBoxItem Style="{StaticResource TodoListBoxItem}"/>
+        <!--<ListBoxItem Style="{StaticResource TodoListBoxItem}"/>-->
     </ListBox>
 
 </UserControl>

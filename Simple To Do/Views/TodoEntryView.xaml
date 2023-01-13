@@ -36,8 +36,8 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="1" Orientation="Horizontal">
-            <Button Style="{StaticResource TodoEntryButton}"/>
-            <TextBox Style="{StaticResource EntryTextBox}"/>
+            <Button Click="TodoEntryButton_Click" Style="{StaticResource TodoEntryButton}"/>
+            <TextBox Name="abc" Style="{StaticResource EntryTextBox}"/>
         </StackPanel>
     </Grid>
 
