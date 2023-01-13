@@ -32,8 +32,10 @@ namespace Simple_To_Do
                 {
                     VerticalAlignment = VerticalAlignment.Center,
                     ToolTip = "Complete",
-                    Margin = new Thickness(2)
+                    Margin = new Thickness(2),
                 };
+
+                checkBox.Checked += CompleteTaskCheckBox_Checked;
 
                 TextBlock textBlock = new()
                 {
@@ -56,6 +58,8 @@ namespace Simple_To_Do
                     Height = 30,
                     Background = new SolidColorBrush(Colors.Red)
                 };
+
+                button.Click += DeleteTaskButton_Clicked;
 
                 StackPanel stackPanel = new()
                 {
@@ -88,6 +92,43 @@ namespace Simple_To_Do
             }
 
             TodoEntryTextBox.Clear();
+            TodoEntryTextBox.Focus();
         }
+
+        /// <summary>
+        /// "Completes" the task by removing the Todo Item from TodoListBox. First, gets reference to the sender by setting
+        /// a CheckBox to the sender casted to a CheckBox. Since I know the parent container of the sender is a StackPanel,
+        /// I use the VisualTreeHelper class to get the parent. Since I know the parent container of the StackPanel is a Grid,
+        /// I use the VisualTreeHelper again to get the Grid. The Grid container is ultimately what I want to remove from
+        /// TodoListBox, so I call the Remove() method passing the grid.
+        /// </summary>
+        /// <param name="sender">The CheckBox associate with the particular task.</param>
+        /// <param name="e">//TODO I'm not sure what this is honestly...</param>
+        private void CompleteTaskCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            StackPanel stackPanel = (StackPanel)VisualTreeHelper.GetParent(checkBox);
+            Grid grid = (Grid)VisualTreeHelper.GetParent(stackPanel);
+            TodoListBox.Items.Remove(grid);
+
+            TodoEntryTextBox.Focus();
+        }
+
+        /// <summary>
+        /// "Deletes" the task by removing the Todo Item from TodoListBox in an identical manner to CompleteTaskCheckBox_Checked.
+        /// TODO - more robust functionality.
+        /// </summary>
+        /// <param name="sender">The CheckBox associate with the particular task.</param>
+        /// <param name="e">//TODO I'm not sure what this is honestly...</param>
+        private void DeleteTaskButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            StackPanel stackPanel = (StackPanel)VisualTreeHelper.GetParent(button);
+            Grid grid = (Grid)VisualTreeHelper.GetParent(stackPanel);
+            TodoListBox.Items.Remove(grid);
+
+            TodoEntryTextBox.Focus();
+        }
+
     }
 }

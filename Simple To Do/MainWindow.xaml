@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Simple_To_Do"
         mc:Ignorable="d"
-        Title="Simple To Do" Height="450" Width="800"
+        Title="Simple To Do" Height="450" Width="800" ResizeMode="NoResize"
         FontSize="16"
         FontFamily="Source Code Pro"
         WindowStartupLocation="CenterScreen">
@@ -49,8 +49,10 @@
         <!--The Todo ListBox, where you can see an interact with all of your Todo Items.-->
         <ListBox Name="TodoListBox"
                  HorizontalAlignment="Center"
+                 MaxHeight="300"
                  Margin="15"
-                 BorderThickness="0"/>
+                 BorderThickness="0"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"/>
 
     </StackPanel>
 </Window>
