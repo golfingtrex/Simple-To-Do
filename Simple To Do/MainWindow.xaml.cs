@@ -30,14 +30,16 @@ namespace Simple_To_Do
             {
                 CheckBox checkBox = new()
                 {
-                    Margin = new Thickness(2),
-                    VerticalAlignment = VerticalAlignment.Center
+                    VerticalAlignment = VerticalAlignment.Center,
+                    ToolTip = "Complete",
+                    Margin = new Thickness(2)
                 };
 
                 TextBlock textBlock = new()
                 {
                     Text = TodoEntryTextBox.Text,
                     TextWrapping = TextWrapping.Wrap,
+                    ToolTip = "Tarry not...",
                     Width = 500,
                     //Height = 30, // disable for TextWrapping
                     FontSize = 18,
@@ -49,6 +51,7 @@ namespace Simple_To_Do
                 Button button = new()
                 {
                     Content = "X",
+                    ToolTip = "Delete",
                     Width = 30,
                     Height = 30,
                     Background = new SolidColorBrush(Colors.Red)
