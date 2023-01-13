@@ -3,23 +3,54 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Simple_To_Do" xmlns:views="clr-namespace:Simple_To_Do.Views"
+        xmlns:local="clr-namespace:Simple_To_Do"
         mc:Ignorable="d"
         Title="Simple To Do" Height="450" Width="800"
         FontSize="16"
         FontFamily="Source Code Pro"
         WindowStartupLocation="CenterScreen">
 
-    <StackPanel Name="mainStackPanel" Margin="10" MinWidth="500">
-        <views:BannerView Margin="0 10"/>
-        <views:TodoEntryView Margin="0 10"/>
-        <views:TodoListView Margin="0 10"/>
+    <StackPanel Margin="10">
 
-        <!--<ListBox Name="TodoList" Style="{StaticResource TodoListBox}">
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem"/>
-            </ListBox.ItemContainerStyle>
-        </ListBox>-->
+        <!--The App Banner-->
+        <TextBlock Text="TODO App!"
+                   FontSize="24"
+                   HorizontalAlignment="Center"
+                   Margin="10">
+        </TextBlock>
+
+        <!--The Todo Entry Button and TextBox-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Uses a Horizontal StackPanel in the center column of a 3-column Grid for centering.-->
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button Click="AddTodoButton_Click"
+                        Content="Add Todo"
+                        Width="100"
+                        Height="30"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Padding="10,5"
+                        Margin="0 0 10 0"/>
+
+                <TextBox Name="TodoEntryTextBox"
+                         Width="400"
+                         Height="30"
+                         VerticalAlignment="Center"
+                         Padding="2,4"/>
+            </StackPanel>
+        </Grid>
+
+        <!--The Todo ListBox, where you can see an interact with all of your Todo Items.-->
+        <ListBox Name="TodoListBox"
+                 Margin="15"
+                 BorderThickness="0"
+                 HorizontalAlignment="Center"/>
 
     </StackPanel>
 </Window>
